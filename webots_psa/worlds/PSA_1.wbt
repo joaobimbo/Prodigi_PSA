@@ -1,0 +1,31 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/lights/protos/CeilingLight.proto"
+EXTERNPROTO "../protos/PSA_Braitenberg.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.36574027869474085 0.1164257315870366 -0.9234062473065237 2.5143961056766457
+  position 4.67882730718995 4.465885496733937 5.2363545251829535
+}
+TexturedBackground {
+  luminosity 0
+}
+TexturedBackgroundLight {
+  luminosity 0.5
+}
+RectangleArena {
+  floorSize 10 10
+}
+PSA_Braitenberg {
+  translation 4.0797102609362e-12 -3.519033797942314e-06 0.04986669250886113
+  rotation 0.9999999997760143 -1.951679869275931e-05 -8.189383354348322e-06 7.035461041427366e-05
+}
+CeilingLight {
+  translation 0.34 1.92 0.97
+  pointLightIntensity 7
+}

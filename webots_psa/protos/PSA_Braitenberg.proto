@@ -1,0 +1,177 @@
+#VRML_SIM R2023b utf8
+PROTO PSA_Braitenberg [
+  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 1 0 0
+  field SFString   name         "PSA_Braitenberg"
+  field SFString   controller      "psa_braitenberg"    # Is `Robot.controller`.
+
+] {
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    controller IS controller
+    
+    children [
+      # Corpo principal
+      Shape {
+        appearance PBRAppearance {
+          baseColor 0.2 0.6 0.9
+          roughness 0.5
+          metalness 0.0
+        }
+        geometry Box {
+          size 0.15 0.2 0.05  # largura x comprimento x altura
+        }           
+      } 
+      
+      Solid {
+        translation 0 0.1 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.3 0.3 0.3
+              roughness 1.0
+              metalness 0.0
+              transparency 0.0
+            }
+            geometry Box {size 0.05 0.2 0.06    }
+          }
+        ]
+        boundingObject Box {size 0.05 0.2 0.06   }
+        physics Physics { mass 0.01 density -1}
+      }
+
+
+      # Roda esquerda
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -1 0 0
+          anchor -0.085 -0.05 -0.025
+        }
+        device [
+          RotationalMotor { name "left_motor" }
+          PositionSensor { name "left_sensor" }
+        ]
+        endPoint Solid {
+          name "r_wheel_solid"
+          translation -0.085 -0.05 -0.025
+          rotation 0 1 0 1.5708
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.1 0.1 0.1
+              }
+              geometry Cylinder {
+                radius 0.025
+                height 0.01
+              }
+            }
+          ]
+          boundingObject Cylinder {
+            radius 0.025
+            height 0.01
+          }
+          physics Physics { mass 0.05 density -1}
+        }
+      }
+
+      # Roda direita
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -1 0 0
+          anchor 0.085 -0.05 -0.025
+        }
+        device [
+          RotationalMotor { name "right_motor" }
+          PositionSensor { name "right_sensor" }
+        ]
+        endPoint Solid {
+          name "l_wheel_solid"
+          translation 0.085 -0.05 -0.025
+          rotation 0 1 0 1.5708
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.1 0.1 0.1
+              }
+              geometry Cylinder {
+                radius 0.025
+                height 0.01
+              }
+            }
+          ]
+          boundingObject Cylinder {
+            radius 0.025
+            height 0.01
+          }
+          physics Physics { mass 0.05 density -1}
+        }
+      }
+
+      # Caster wheel (roda livre) à frente
+      Solid {
+        name "caster"
+        translation 0 0.2 -0.04
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.3 0.3 0.3
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        boundingObject Sphere { radius 0.01 }
+        physics Physics { mass 0.01 density -1}
+      }
+      
+      # Sensor de luz esquerdo
+      Transform {
+        translation -0.05 0.11 0.0   # mais à frente
+        rotation 0 0 1 2.5708         # virado para a frente
+        children [
+          LightSensor {
+            name "ls_left"
+            lookupTable [ 1 0 0, 2 2 0, 10 8 0,100 10 0]
+            occlusion TRUE
+          }
+          Shape {   # só decoração da “lente”
+            appearance PBRAppearance {
+              baseColor 1 1 0
+              emissiveColor 1 1 0
+            }
+            geometry Sphere { radius 0.01 }
+          }
+        ]
+      }
+
+      # Sensor de luz direito
+      Transform {
+        translation 0.05 0.11 0.0   # mais à frente
+        rotation 0 0 1 0.5708         # virado para a frente
+        children [
+          LightSensor {
+            name "ls_right"
+            lookupTable [ 1 0 0, 2 2 0, 10 8 0,100 10 0]
+            occlusion TRUE
+          }
+          Shape {   # só decoração da “lente”
+            appearance PBRAppearance {
+              baseColor 1 1 0
+              emissiveColor 1 1 0
+            }
+            geometry Sphere { radius 0.01 }
+          }
+        ]
+      }
+
+    ]
+    boundingObject Box {
+      size 0.2 0.1 0.05
+    }
+    physics Physics { mass 0.3 density -1 }
+  }
+}
+  
