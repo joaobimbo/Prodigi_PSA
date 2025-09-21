@@ -1,0 +1,110 @@
+#VRML_SIM R2025a utf8
+PROTO PSA_PID [
+  field SFString   name         "PSA_PID"
+  field SFString   controller      "psa_pid"    # Is `Robot.controller`.
+
+] {
+  Robot {
+    name IS name
+    controller IS controller
+    children [
+      # -------------------- BASE --------------------
+      Solid {
+        name "base"
+        translation 0 0 0.3          # metade da altura (0.05 / 2)
+        children [
+            DEF POSITION_ERROR_GRAPH Display {
+               width 640
+               height 240
+            }        
+          Shape {
+            appearance PBRAppearance { baseColor 0.2 0.4 0.6 }
+            geometry Box { size 0.20 0.05 0.6 }   # 20x15x5 cm
+          }
+          
+          Solid {
+                  name "hinge_cover"
+                  translation 0.0 -0.1 0.25
+                  rotation 1 0 0 1.5708
+                  children [
+                    Shape {
+                      geometry Cylinder { radius 0.05 height 0.10 }
+                      appearance PBRAppearance { baseColor 0.8 0.8 0.8 }
+                    }
+                  ]
+                  boundingObject Sphere { radius 0.05 }
+                  physics Physics { mass 1.0 density -1 }
+                }
+          
+
+          # --------------- JUNTA --------------------
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 0 0.25          # topo da base (altura total)
+              axis 0 1 0               # eixo paralelo ao chão (Y)
+              #suspensionDampingConstant   0.02
+              minStop -3
+              maxStop 3
+            }
+            device [
+              RotationalMotor { name "shoulder_motor" maxTorque 50.0 }
+              PositionSensor  { name "shoulder_sensor" }
+            ]
+
+            # ------------- ENDPOINT: BRAÇO ----------
+            endPoint Solid {
+              name "arm_link"
+              rotation 0 1 0 0.0       # ângulo inicial
+              children [
+                # Cilindro do braço
+                Transform {
+                  rotation 0 0 1 1.5708
+                  translation 0.0 -0.1 0
+                  children [
+                    Shape {
+                      geometry Cylinder { radius 0.015 height 0.40 }
+                      appearance PBRAppearance { baseColor 0.8 0.8 0.8 }
+                    }
+                  ]
+                }
+
+                # Esfera pesada na ponta
+                Solid {
+                  name "end_sphere"
+                  translation 0.0 -0.1 -0.20
+                  children [
+                    Shape {
+                      geometry Sphere { radius 0.05 }
+                      appearance PBRAppearance { baseColor 0.85 0.30 0.10 }
+                    }
+                  ]
+                  boundingObject Sphere { radius 0.05 }
+                  physics Physics { mass 1.0 density -1 }
+                }
+              ]
+
+              # Bounding + física do braço
+              boundingObject Group {
+                children [
+                  Transform {
+                    rotation 0 0 1 1.5708
+                    translation 0.0 0 0
+                    children [ Cylinder { radius 0.015 height 0.40 } ]
+                  }
+                  Transform {
+                    translation 0.0 0 0
+                    children [ Sphere { radius 0.05 } ]
+                  }
+                ]
+              }
+              physics Physics {}
+            }
+          }
+        ]
+        boundingObject Box { size 0.40 0.5 0.5 }
+        physics Physics {  }
+        locked TRUE                       # base imobilizada (evita drift/deslizamento)
+      }
+    ]
+  }
+}
