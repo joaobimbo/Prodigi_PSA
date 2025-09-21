@@ -2,7 +2,7 @@
 PROTO PSA_PID [
   field SFString   name         "PSA_PID"
   field SFString   controller      "psa_pid"    # Is `Robot.controller`.
-
+  field SFFloat   angle      0.0
 ] {
   Robot {
     name IS name
@@ -45,9 +45,10 @@ PROTO PSA_PID [
               #suspensionDampingConstant   0.02
               minStop -3
               maxStop 3
+              position IS angle
             }
             device [
-              RotationalMotor { name "shoulder_motor" maxTorque 50.0 }
+              RotationalMotor { name "shoulder_motor" maxTorque 150.0 }
               PositionSensor  { name "shoulder_sensor" }
             ]
 
@@ -88,11 +89,11 @@ PROTO PSA_PID [
                 children [
                   Transform {
                     rotation 0 0 1 1.5708
-                    translation 0.0 0 0
+                    translation 0.0 -0.1 0
                     children [ Cylinder { radius 0.015 height 0.40 } ]
                   }
                   Transform {
-                    translation 0.0 0 0
+                    translation 0.0 -0.1 -0.2
                     children [ Sphere { radius 0.05 } ]
                   }
                 ]
