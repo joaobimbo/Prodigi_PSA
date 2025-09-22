@@ -21,21 +21,9 @@ def go_back(robot):
 def stop(robot):
     robot.set_motors(0.0, 0.0)
 
-# ----- Exemplo de sensores -----
-# Sensores frontais de proximidade
-prox_left   = 'prox.horizontal.0'
-prox_center = 'prox.horizontal.2'
-prox_right  = 'prox.horizontal.4'
-# Sensores frontais: 0 a 4 (esq -> dir)
-# Sensores traseiros: 5 (esq) e 6 (dir)
-
 # Ciclo principal
 while robot.running():
-    # Ler sensores
-    val_left   = robot.get_sensor(prox_left)
-    val_center = robot.get_sensor(prox_center)
-    val_right  = robot.get_sensor(prox_right)
-    #print(val_center)
 
     # ---------- Exemplo de comportamento ----------
+
     go_forward(robot)

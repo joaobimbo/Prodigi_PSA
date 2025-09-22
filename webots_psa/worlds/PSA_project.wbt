@@ -1,0 +1,91 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/mobsya/thymio/protos/Thymio2.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.19661972520961085 -0.5873852457244307 0.7850600338596707 5.4771146084629265
+  position -2.5693720843125147 1.978293327677675 1.8211686627620358
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Thymio2 {
+}
+DEF Floor Solid {
+  translation 0 0 -0.01
+  children [
+    Shape {
+      appearance PBRAppearance {
+        metalness 0
+      }
+      geometry Box {
+        size 2 2 0.01
+      }
+    }
+  ]
+}
+DEF Floor Solid {
+  translation 2 0 -0.01
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry Box {
+        size 2 2 0.01
+      }
+    }
+  ]
+  name "solid(1)"
+}
+DEF Floor Solid {
+  translation 0 2 -0.01
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        metalness 0
+      }
+      geometry Box {
+        size 2 2 0.01
+      }
+    }
+  ]
+  name "solid(2)"
+}
+DEF Floor Solid {
+  translation -2 0 -0.01
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        metalness 0
+      }
+      geometry Box {
+        size 2 2 0.01
+      }
+    }
+  ]
+  name "solid(3)"
+}
+DEF Floor Solid {
+  translation 0 -2 -0.01
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        metalness 0
+      }
+      geometry Box {
+        size 2 2 0.01
+      }
+    }
+  ]
+  name "solid(4)"
+}

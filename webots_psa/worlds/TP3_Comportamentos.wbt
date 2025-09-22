@@ -1,0 +1,106 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/mobsya/thymio/protos/Thymio2.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/balls/protos/SoccerBall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/obstacles/protos/OilBarrel.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.21554057024558712 -0.5469415625074711 -0.8089481996890118 5.376538322620849
+  position -2.477272569107306 -2.3217368801627525 1.7670713309746697
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 3 3
+}
+Thymio2 {
+  translation -0.7 0 0
+  controller "Thymio_tp3"
+}
+WoodenBox {
+  translation -0.375 -0.625 0.05
+  size 0.1 0.1 0.1
+  mass 0.02
+}
+WoodenBox {
+  translation -0.375 -0.875 0.06
+  name "wooden box(1)"
+  size 0.12 0.12 0.12
+  mass 0.015
+}
+WoodenBox {
+  translation -0.625 -0.625 0.07
+  name "wooden box(2)"
+  size 0.14 0.14 0.14
+  mass 0.03
+}
+WoodenBox {
+  translation -0.625 -0.875 0.08
+  name "wooden box(3)"
+  size 0.16 0.16 0.16
+  mass 0.04
+}
+WoodenBox {
+  translation -0.875 -0.625 0.09
+  name "wooden box(4)"
+  size 0.18 0.18 0.18
+  mass 0.05
+}
+WoodenBox {
+  translation -0.875 -0.875 0.1
+  name "wooden box(5)"
+  size 0.2 0.2 0.2
+  mass 0.06
+}
+SoccerBall {
+  translation 0 0.06 0.11
+  radius 0.05
+}
+Wall {
+  translation 0.5 0 0
+  size 0.02 1.5 0.1
+}
+Wall {
+  translation 1 1.125 0
+  rotation 0 0 1 1.57
+  name "wall(1)"
+  size 0.02 1 0.1
+}
+Wall {
+  translation 1 0 0
+  rotation 0 0 1 1.57
+  name "wall(2)"
+  size 0.02 1 0.1
+}
+Wall {
+  translation 1 -1.125 0
+  rotation 0 0 1 1.57
+  name "wall(3)"
+  size 0.02 1 0.1
+}
+OilBarrel {
+  translation -0.875 1.125 0.1
+  height 0.2
+  radius 0.08
+}
+OilBarrel {
+  translation -0.875 0.875 0.1
+  name "oil barrel(1)"
+  height 0.2
+  radius 0.08
+}
+OilBarrel {
+  translation -0.875 0.625 0.1
+  name "oil barrel(2)"
+  height 0.2
+  radius 0.08
+}
