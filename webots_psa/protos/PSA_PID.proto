@@ -24,7 +24,7 @@ PROTO PSA_PID [
           
           Solid {
                   name "hinge_cover"
-                  translation 0.0 -0.1 0.25
+                  translation 0.0 -0.075 0.25
                   rotation 1 0 0 1.5708
                   children [
                     Shape {
@@ -80,7 +80,7 @@ PROTO PSA_PID [
                     }
                   ]
                   boundingObject Sphere { radius 0.05 }
-                  physics Physics { mass 1.0 density -1 }
+                  physics Physics { mass 10.0 density -1 }
                 }
               ]
 

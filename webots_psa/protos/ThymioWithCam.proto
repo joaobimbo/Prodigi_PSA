@@ -1,0 +1,42 @@
+#VRML_SIM R2025a utf8
+EXTERNPROTO "../protos/Thymio2.proto"
+
+PROTO ThymioWithCam [
+  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 1 0 0
+  field SFString   name         "thymio_cam"
+  field SFString   controller   "thymio_cam_controller"
+] {
+  Thymio2 {
+    translation IS translation
+    rotation    IS rotation
+    name        IS name
+    controller  IS controller
+
+    bodySlot [
+      Solid {
+        translation 0.10 0.0 0.035
+        rotation 1 0 0 0
+        children [
+          Shape {
+            appearance PBRAppearance { baseColor 0.15 0.15 0.15 roughness 0.4 }
+            geometry Box { size 0.018 0.026 0.014 }
+          }
+          DEF CAMERA_DISP Display {
+               width 320
+               height 240
+            }
+          Camera {
+            name "front_camera"
+            width 320
+            height 240
+            fieldOfView 1.0
+            near 0.01
+            far 3.0
+            antiAliasing TRUE
+          }
+        ]
+      }
+    ]     
+  }
+}
