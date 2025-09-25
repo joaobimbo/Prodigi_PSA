@@ -7,7 +7,6 @@ EXTERNPROTO "../protos/ThymioWithCam.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/balls/protos/Ball.proto"
 
 WorldInfo {
-  basicTimeStep 10
   contactProperties [
     ContactProperties {
       material2 "thymio body"
@@ -18,8 +17,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.19234058792038478 0.43608887644785543 0.8791084063281888 0.9300454127489685
-  position -1.7128564613962818 -1.8715797031692043 1.4755686900343088
+  orientation -0.22309595111919633 0.549929030785312 0.8048641237462063 0.9337567571159069
+  position -1.61931484656268 -1.5742275228843068 1.1258853280576517
 }
 TexturedBackground {
 }

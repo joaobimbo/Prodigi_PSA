@@ -23,6 +23,7 @@ def get_image():
     img,cX,cY=processar_imagem(image,w,h)
     print(img.shape)
     ir = disp.imageNew(img.tobytes(), Display.RGB, w, h)
+    #ir = disp.imageNew(image, Display.BGRA, w, h)
     disp.imagePaste(ir,0, 0, False)
     disp.imageDelete(ir)
     return cX,cY

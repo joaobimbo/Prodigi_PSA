@@ -1,5 +1,5 @@
 #VRML_SIM R2025a utf8
-EXTERNPROTO "../protos/Thymio2.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/mobsya/thymio/protos/Thymio2.proto"
 
 PROTO ThymioWithCam [
   field SFVec3f    translation  0 0 0

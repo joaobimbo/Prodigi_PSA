@@ -1,0 +1,40 @@
+
+import os
+os.system('pip install opencv-python')
+import cv2 
+import numpy as np
+def RGBA2HSV(image):
+    return cv2.cvtColor(image[:,:,:3],cv2.COLOR_BGR2HSV)
+    
+    
+def mask_image(image,h,s,v):
+    lower = np.array([h[0], s[0], v[0]])
+    upper = np.array([h[1], s[1], v[1]])
+
+    mask = cv2.inRange(image, lower, upper)
+    result = cv2.bitwise_and(image, image, mask=mask)
+    result = cv2.cvtColor(result[:,:,:3],cv2.COLOR_HSV2RGB)
+    return result
+
+def centroid(img):    
+    # convert image to grayscale image
+    gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+     
+    # convert the grayscale image to binary image
+    ret,thresh = cv2.threshold(gray_image,50,255,0)
+     
+    # calculate moments of binary image
+    M = cv2.moments(thresh)
+    cX,cY=0,0
+    if M["m00"] !=0:     
+        # calculate x,y coordinate of center
+        cX = int(M["m10"] / M["m00"])
+        cY = int(M["m01"] / M["m00"])
+         
+        # put text and highlight the center
+        cv2.circle(img, (cX, cY), 5, (255, 255, 255), -1)
+        cv2.putText(img, "centroid", (cX - 25, cY - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+ 
+    return img,cX,cY
+    
+

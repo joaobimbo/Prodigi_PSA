@@ -1,0 +1,242 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/mobsya/thymio/protos/Thymio2.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/balls/protos/SoccerBall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/obstacles/protos/OilBarrel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Roughcast.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.20219566654422763 -0.843032687331836 -0.49841027328978543 5.3861595888183365
+  position -2.0305922471279008 -1.947635177427365 2.0148919194034587
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0.75 0 0
+  floorSize 4.5 3
+}
+Thymio2 {
+  translation -0.7 -1.41 0
+  controller "Thymio_tp5_pid"
+}
+WoodenBox {
+  translation -0.375 -0.625 0.05
+  size 0.1 0.1 0.1
+  mass 0.02
+}
+WoodenBox {
+  translation -0.375 -0.875 0.06
+  name "wooden box(1)"
+  size 0.12 0.12 0.12
+  mass 0.015
+}
+WoodenBox {
+  translation -0.625 -0.625 0.07
+  name "wooden box(2)"
+  size 0.14 0.14 0.14
+  mass 0.03
+}
+WoodenBox {
+  translation -0.625 -0.875 0.08
+  name "wooden box(3)"
+  size 0.16 0.16 0.16
+  mass 0.04
+}
+WoodenBox {
+  translation -0.875 -0.625 0.09
+  name "wooden box(4)"
+  size 0.18 0.18 0.18
+  mass 0.05
+}
+WoodenBox {
+  translation -0.875 -0.875 0.1
+  name "wooden box(5)"
+  size 0.2 0.2 0.2
+  mass 0.06
+}
+SoccerBall {
+  translation 0 0.06 0.11
+  radius 0.05
+}
+Wall {
+  translation 0.5 0 0
+  size 0.02 1.5 0.1
+}
+Wall {
+  translation 1 1.125 0
+  rotation 0 0 1 1.57
+  name "wall(1)"
+  size 0.02 1 0.1
+}
+Wall {
+  translation 1 0 0
+  rotation 0 0 1 1.57
+  name "wall(2)"
+  size 0.02 1 0.1
+}
+Wall {
+  translation 1 -1.125 0
+  rotation 0 0 1 1.57
+  name "wall(3)"
+  size 0.02 1 0.1
+}
+Wall {
+  translation 1.5 0.9375 0
+  name "wall(4)"
+  size 0.02 1.125 0.1
+}
+Wall {
+  translation 1.5 -0.9375 0
+  name "wall(5)"
+  size 0.02 1.125 0.1
+}
+Wall {
+  translation 2.25 0.8 0
+  name "wall_color"
+  size 0.02 0.2 0.1
+  appearance Roughcast {
+    colorOverride 0 0 0
+    textureTransform TextureTransform {
+      scale 2.4 1
+    }
+  }
+}
+Wall {
+  translation 2.25 0.6 0
+  name "wall_color(1)"
+  size 0.02 0.2 0.1
+  appearance Roughcast {
+    colorOverride 0.9 0.5 0.9
+    textureTransform TextureTransform {
+      scale 2.4 1
+    }
+  }
+}
+Wall {
+  translation 2.25 0.4 0
+  name "wall_color(2)"
+  size 0.02 0.2 0.1
+  appearance Roughcast {
+    colorOverride 0.3 0 0.5
+    textureTransform TextureTransform {
+      scale 2.4 1
+    }
+  }
+}
+Wall {
+  translation 2.25 0.2 0
+  name "wall_color(3)"
+  size 0.02 0.2 0.1
+  appearance Roughcast {
+    colorOverride 0 0 1
+    textureTransform TextureTransform {
+      scale 2.4 1
+    }
+  }
+}
+Wall {
+  translation 2.25 0 0
+  name "wall_color(4)"
+  size 0.02 0.2 0.1
+  appearance Roughcast {
+    colorOverride 0 0.5 0
+    textureTransform TextureTransform {
+      scale 2.4 1
+    }
+  }
+}
+Wall {
+  translation 2.25 -0.2 0
+  name "wall_color(5)"
+  size 0.02 0.2 0.1
+  appearance Roughcast {
+    colorOverride 1 1 0
+    textureTransform TextureTransform {
+      scale 2.4 1
+    }
+  }
+}
+Wall {
+  translation 2.25 -0.4 0
+  name "wall_color(6)"
+  size 0.02 0.2 0.1
+  appearance Roughcast {
+    colorOverride 1 0.65 0
+    textureTransform TextureTransform {
+      scale 2.4 1
+    }
+  }
+}
+Wall {
+  translation 2.25 -0.6 0
+  name "wall_color(7)"
+  size 0.02 0.2 0.1
+  appearance Roughcast {
+    colorOverride 1 0 0
+    textureTransform TextureTransform {
+      scale 2.4 1
+    }
+  }
+}
+Wall {
+  translation 2.25 -0.8 0
+  name "wall_color(8)"
+  size 0.02 0.2 0.1
+}
+OilBarrel {
+  translation -0.875 1.125 0.1
+  height 0.2
+  radius 0.08
+}
+OilBarrel {
+  translation -0.875 0.875 0.1
+  name "oil barrel(1)"
+  height 0.2
+  radius 0.08
+}
+OilBarrel {
+  translation -0.875 0.625 0.1
+  name "oil barrel(2)"
+  height 0.2
+  radius 0.08
+}
+Robot {
+  translation -0.25 0.75 0
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+      }
+      device [
+        RotationalMotor {
+          name "wall_motor"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0 0.1
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry Box {
+              size 0.5 0.05 0.2
+            }
+          }
+        ]
+        boundingObject Box {
+          size 0.5 0.05 0.2
+        }
+      }
+    }
+  ]
+  controller "rotating_wall_controller"
+}

@@ -3,12 +3,13 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/mobsya/thymio/protos/Thymio2.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/bounding_objects/protos/PipeBoundingObject.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.19661972520961085 -0.5873852457244307 0.7850600338596707 5.4771146084629265
-  position -2.5693720843125147 1.978293327677675 1.8211686627620358
+  orientation -0.1385988468914321 -0.929558577411411 0.3416302252454245 5.460161571113815
+  position -4.368959933189891 1.4381315522300082 4.868755769949113
 }
 TexturedBackground {
 }
@@ -28,6 +29,9 @@ DEF Floor Solid {
       }
     }
   ]
+  boundingObject Box {
+    size 2 2 0.01
+  }
 }
 DEF Floor Solid {
   translation 2 0 -0.01
@@ -88,4 +92,7 @@ DEF Floor Solid {
     }
   ]
   name "solid(4)"
+}
+PipeBoundingObject {
+  thickness 1
 }
