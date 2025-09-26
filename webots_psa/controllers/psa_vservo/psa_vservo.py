@@ -9,8 +9,8 @@ r=ThymioPSA(thymio)
 def processar_imagem(image,w,h):
     img_array = np.frombuffer(image, dtype=np.uint8).reshape((h, w, 4))
     #print(RGBA2HSV(img_array))
-    #img=mask_image(RGBA2HSV(img_array),[60,80],[50,255],[10,255]) #verde
-    img=mask_image(RGBA2HSV(img_array),[25,40],[20,255],[20,255]) #amarelo
+    img=mask_image(RGBA2HSV(img_array),[50,90],[50,255],[10,255]) #verde
+    #img=mask_image(RGBA2HSV(img_array),[25,40],[20,255],[20,255]) #amarelo
     img,x,y=centroid(img)
     return img,x,y
     
@@ -34,6 +34,8 @@ def get_line_sensor(r):
 while r.running():
     d=get_line_sensor(r)
     cX,cY=get_image()
-    r.set_motors(4+(cX-120)*0.1,4+(120-cX)*0.1)
+    vl,vr=3+(cX-160)*0.3,3+(160-cX)*0.3
+    r.set_motors(vl,vr)
     print(cX,cY)
-    # Codigo segue-linha aqui
+    print(vl,vr)
+    
