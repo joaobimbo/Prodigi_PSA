@@ -22,7 +22,7 @@ PROTO RobocupGoal [
     if (fields.size.value === 'kid') {
       // KidSize dimensions
       C = 0.2;
-      D = 0.6;
+      D = 0.8;
       goal_height = 0.4;
     } else {
       // AdultSize dimensions
