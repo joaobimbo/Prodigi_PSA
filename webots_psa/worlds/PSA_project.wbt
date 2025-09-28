@@ -13,97 +13,107 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/hospital/protos/EmergencyExitSign.proto"
 
 WorldInfo {
+  FPS 30
 }
 Viewpoint {
-  orientation -0.15711105114321586 0.49356669135518555 0.8553993446299621 0.7125123202918626
-  position -2.9140919002193875 -2.333215924039183 1.7428554400018712
+  orientation -0.07934409620279496 -0.9505777039694593 0.3001775193346645 5.715490778205348
+  position -4.6858506130320015 1.539599087869243 3.552196487651743
+  follow "thymio_cam"
 }
 TexturedBackground {
   texture "stadium"
+  luminosity 0.3
 }
 TexturedBackgroundLight {
+  luminosity 0.5
 }
 ThymioWithCam {
   translation -0.5 -0.5 0
+  rotation -0.0001602119673666414 -0.9998505457342757 -0.017287583029351246 0.008871628918154443
   controller "Thymio_projeto"
 }
 SoccerBall {
-  translation 4.25 0.8 0.05
+  translation 4.25 0.8 0.04905824086850856
   radius 0.05
 }
-DEF Wall Wall {
-  translation 0.25 -0.45 0
-  name "wall(6)"
-  size 0.02 0.9 0.25
-}
-DEF Wall Wall {
-  translation 1.375 0 0
-  rotation 0 0 1 1.57
-  name "wall(1)"
-  size 0.02 0.25 0.1
-}
-DEF Wall Wall {
-  translation 2.425 0.67 0
-  rotation 0 0 1 2.3554
-  name "wall(2)"
-  size 0.02 0.5 0.1
-}
-DEF Wall Wall {
-  translation 2.809 1.548 0
-  rotation 0 0 1 2.3554
-  name "wall(7)"
-  size 0.02 0.6 0.1
-}
-DEF Wall Wall {
-  translation 1.25 -0.9 0
-  rotation 0 0 1 1.57
-  name "wall(3)"
-  size 0.02 2 0.1
-}
-DEF Wall Wall {
-  translation 3.765 1.755 0
-  rotation 0 0 1 1.57
-  name "wall(8)"
-  size 0.02 1.5 0.1
-}
-DEF Wall Wall {
-  translation 3.475 1.95 0
-  rotation 0 0 1 1.57
-  name "wall(9)"
-  size 0.02 0.95 0.1
-}
-DEF Wall Wall {
-  translation 4.81 2.7 0
-  rotation 0 0 1 1.57
-  name "wall(12)"
-  size 0.02 0.225 0.1
-}
-DEF Wall Wall {
-  translation 4.3235 2.3265 0
-  rotation 0 0 -1 -2.3554053071795864
-  name "wall(10)"
-  size 0.02 1.075 0.1
-}
-DEF Wall Wall {
-  translation 2.25 -0.2 0
-  name "wall(4)"
-  size 0.02 1.4 0.1
-}
-DEF Wall Wall {
-  translation 2.59876 1.09311 8.88182e-16
-  name "wall(5)"
-  size 0.02 0.5 0.1
-}
-DEF Wall Wall {
-  translation 4.925 1.95 8.88182e-16
-  name "wall(11)"
-  size 0.02 1.5 0.1
+DEF Walls Group {
+  children [
+    DEF Wall Wall {
+      translation 0.25 -0.45 0
+      name "wall(6)"
+      size 0.02 0.9 0.25
+    }
+    DEF Wall Wall {
+      translation 1.375 0 0
+      rotation 0 0 1 1.57
+      name "wall(1)"
+      size 0.02 0.25 0.1
+    }
+    DEF Wall Wall {
+      translation 2.425 0.67 0
+      rotation 0 0 1 2.3554
+      name "wall(2)"
+      size 0.02 0.5 0.1
+    }
+    DEF Wall Wall {
+      translation 2.809 1.548 0
+      rotation 0 0 1 2.3554
+      name "wall(7)"
+      size 0.02 0.6 0.1
+    }
+    DEF Wall Wall {
+      translation 1.25 -0.9 0
+      rotation 0 0 1 1.57
+      name "wall(3)"
+      size 0.02 2 0.1
+    }
+    DEF Wall Wall {
+      translation 3.765 1.755 0
+      rotation 0 0 1 1.57
+      name "wall(8)"
+      size 0.02 1.5 0.1
+    }
+    DEF Wall Wall {
+      translation 3.475 1.95 0
+      rotation 0 0 1 1.57
+      name "wall(9)"
+      size 0.02 0.95 0.1
+    }
+    DEF Wall Wall {
+      translation 4.81 2.7 0
+      rotation 0 0 1 1.57
+      name "wall(12)"
+      size 0.02 0.225 0.1
+    }
+    DEF Wall Wall {
+      translation 4.3235 2.3265 0
+      rotation 0 0 -1 -2.3554053071795864
+      name "wall(10)"
+      size 0.02 1.075 0.1
+    }
+    DEF Wall Wall {
+      translation 2.25 -0.2 0
+      name "wall(4)"
+      size 0.02 1.4 0.1
+    }
+    DEF Wall Wall {
+      translation 2.59876 1.09311 8.88182e-16
+      name "wall(5)"
+      size 0.02 0.5 0.1
+    }
+    DEF Wall Wall {
+      translation 4.925 1.95 8.88182e-16
+      name "wall(11)"
+      size 0.02 1.5 0.1
+    }
+  ]
 }
 DEF rotating_wall Robot {
   translation 1.95 1.25 0
   children [
     HingeJoint {
       jointParameters HingeJointParameters {
+        position 9.472491630434035
         axis 0 0 1
       }
       device [
@@ -112,7 +122,8 @@ DEF rotating_wall Robot {
         }
       ]
       endPoint Solid {
-        translation 0 0 0.1
+        translation 0 0 0.10000000000000005
+        rotation 0 0 -1 3.0938789839251375
         children [
           Shape {
             appearance PBRAppearance {
@@ -121,12 +132,16 @@ DEF rotating_wall Robot {
               metalness 0.75
             }
             geometry Box {
-              size 0.9 0.05 0.2
+              size 0.9 0.1 0.2
             }
           }
         ]
         boundingObject Box {
-          size 0.9 0.05 0.2
+          size 0.9 0.1 0.2
+        }
+        physics Physics {
+          density -1
+          mass 5
         }
       }
     }
@@ -145,7 +160,8 @@ SolidBox {
   }
 }
 SolidBox {
-  translation 1.4 -0.45 0.125
+  translation 1.4 -0.45 0.12499607600384768
+  rotation 2.1875200249845918e-14 2.410736354064652e-14 1 5.176852300164298e-18
   name "gbox"
   size 0.25 0.25 0.25
   appearance PBRAppearance {
@@ -172,267 +188,427 @@ SolidBox {
     emissiveIntensity 5
   }
 }
-DEF Floor Solid {
-  translation -0.5 0.05 -0.005
+DEF Floors Group {
   children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation -0.5 0.05 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 1 1.9 0.01
+          }
+        }
+      ]
+      boundingObject Box {
         size 1 1.9 0.01
       }
     }
-  ]
-  boundingObject Box {
-    size 1 1.9 0.01
-  }
-}
-DEF Floor Solid {
-  translation 0.75 0.05 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 0.75 0.05 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 1 1.9 0.01
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject Box {
         size 1 1.9 0.01
       }
     }
-  ]
-  name "solid(1)"
-  boundingObject Box {
-    size 1 1.9 0.01
-  }
-}
-DEF Floor Solid {
-  translation 2.25 0.975 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 2.25 0.975 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 1.5 1.95 0.01
+          }
+        }
+      ]
+      name "solid(5)"
+      boundingObject Box {
         size 1.5 1.95 0.01
       }
     }
-  ]
-  name "solid(5)"
-  boundingObject Box {
-    size 1.5 1.95 0.01
-  }
-}
-DEF Floor Solid {
-  translation 3.75 0.875 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 3.75 0.875 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 1.5 1.75 0.01
+          }
+        }
+      ]
+      name "solid(6)"
+      boundingObject Box {
         size 1.5 1.75 0.01
       }
     }
-  ]
-  name "solid(6)"
-  boundingObject Box {
-    size 1.5 1.75 0.01
-  }
-}
-DEF Floor Solid {
-  translation 4.665 0.875 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 4.665 0.875 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.33 1.75 0.01
+          }
+        }
+      ]
+      name "solid(12)"
+      boundingObject Box {
         size 0.33 1.75 0.01
       }
     }
-  ]
-  name "solid(12)"
-  boundingObject Box {
-    size 0.33 1.75 0.01
-  }
-}
-DEF Floor Solid {
-  translation 4.8925 0.875 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 4.8925 0.875 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.065 1.75 0.01
+          }
+        }
+      ]
+      name "solid(13)"
+      boundingObject Box {
         size 0.065 1.75 0.01
       }
     }
-  ]
-  name "solid(13)"
-  boundingObject Box {
-    size 0.065 1.75 0.01
-  }
-}
-DEF Floor Solid {
-  translation 4.845 0.875 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        baseColor 0 0 0
-        roughness 1
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 4.845 0.875 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.03 1.75 0.01
+          }
+        }
+      ]
+      name "solid(14)"
+      boundingObject Box {
         size 0.03 1.75 0.01
       }
     }
-  ]
-  name "solid(14)"
-  boundingObject Box {
-    size 0.03 1.75 0.01
-  }
-}
-DEF Floor Solid {
-  translation 0.125 0.5 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 0.125 0.5 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.25 1 0.01
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject Box {
         size 0.25 1 0.01
       }
     }
-  ]
-  name "solid(2)"
-  boundingObject Box {
-    size 0.25 1 0.01
-  }
-}
-DEF Floor Solid {
-  translation 1.6125 -0.45 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 1.6125 -0.45 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.725 0.9 0.01
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject Box {
         size 0.725 0.9 0.01
       }
     }
-  ]
-  name "solid(3)"
-  boundingObject Box {
-    size 0.725 0.9 0.01
-  }
-}
-DEF Floor Solid {
-  translation 3.25 1.85 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 3.25 1.85 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.5 0.2 0.01
+          }
+        }
+      ]
+      name "solid(7)"
+      boundingObject Box {
         size 0.5 0.2 0.01
       }
     }
-  ]
-  name "solid(7)"
-  boundingObject Box {
-    size 0.5 0.2 0.01
-  }
-}
-DEF Floor Solid {
-  translation 4 1.85 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 4 1.85 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.5 0.2 0.01
+          }
+        }
+      ]
+      name "solid(10)"
+      boundingObject Box {
         size 0.5 0.2 0.01
       }
     }
-  ]
-  name "solid(10)"
-  boundingObject Box {
-    size 0.5 0.2 0.01
-  }
-}
-DEF Floor Solid {
-  translation 3.625 1.85 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        baseColor 0.5 0 0.75
-        roughness 1
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 3.625 1.85 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.5 0 0.75
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.25 0.2 0.01
+          }
+        }
+      ]
+      name "solid(11)"
+      boundingObject Box {
         size 0.25 0.2 0.01
       }
     }
-  ]
-  name "solid(11)"
-  boundingObject Box {
-    size 0.25 0.2 0.01
-  }
-}
-DEF Floor Solid {
-  translation 4.8 2.225 -0.005
-  rotation 0 0 1 -1.5707953071795862
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 4.8 2.225 -0.005
+      rotation 0 0 1 -1.5707953071795862
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 0.95 0.25 0.01
+          }
+        }
+      ]
+      name "solid(9)"
+      boundingObject Box {
         size 0.95 0.25 0.01
       }
     }
-  ]
-  name "solid(9)"
-  boundingObject Box {
-    size 0.95 0.25 0.01
-  }
-}
-DEF Floor Solid {
-  translation 4.40426 2.2375 -0.005
-  rotation 0 0 -1 -0.7854053071795866
-  children [
-    Shape {
-      appearance PBRAppearance {
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 4.40426 2.2375 -0.005
+      rotation 0 0 -1 -0.7854053071795866
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Box {
+            size 1.1 0.25 0.01
+          }
+        }
+      ]
+      name "solid(8)"
+      boundingObject Box {
         size 1.1 0.25 0.01
       }
     }
-  ]
-  name "solid(8)"
-  boundingObject Box {
-    size 1.1 0.25 0.01
-  }
-}
-DEF Floor Solid {
-  translation 2.1125 -0.45 -0.005
-  children [
-    Shape {
-      appearance PBRAppearance {
-        baseColor 0 0 0
-        roughness 1
-        metalness 0
-      }
-      geometry Box {
+    DEF Floor Solid {
+      translation 2.1125 -0.45 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.275 0.9 0.01
+          }
+        }
+      ]
+      name "solid(4)"
+      boundingObject Box {
         size 0.275 0.9 0.01
       }
     }
+    DEF Floor Solid {
+      translation -1.0275 -0.45 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 1 0.01
+          }
+        }
+      ]
+      name "solid(16)"
+      boundingObject Box {
+        size 0.05 1 0.01
+      }
+    }
+    DEF Floor Solid {
+      translation 0.0225 -0.45 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 1 0.01
+          }
+        }
+      ]
+      name "solid(22)"
+      boundingObject Box {
+        size 0.05 1 0.01
+      }
+    }
+    DEF Floor Solid {
+      translation 1.2725 0.5 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 1 0.01
+          }
+        }
+      ]
+      name "solid(19)"
+      boundingObject Box {
+        size 0.05 1 0.01
+      }
+    }
+    DEF Floor Solid {
+      translation 0.8025 1.02 -0.005
+      rotation 0 0 1 -1.5707953071795862
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 1 0.01
+          }
+        }
+      ]
+      name "solid(20)"
+      boundingObject Box {
+        size 0.05 1 0.01
+      }
+    }
+    DEF Floor Solid {
+      translation -1.0275 0.5 -0.005
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 1 0.01
+          }
+        }
+      ]
+      name "solid(17)"
+      boundingObject Box {
+        size 0.05 1 0.01
+      }
+    }
+    DEF Floor Solid {
+      translation -0.5475 1.02 -0.005
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 1 0.01
+          }
+        }
+      ]
+      name "solid(18)"
+      boundingObject Box {
+        size 0.05 1 0.01
+      }
+    }
+    DEF Floor Solid {
+      translation 0.2125 1.02 -0.005
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 1 0.01
+          }
+        }
+      ]
+      name "solid(23)"
+      boundingObject Box {
+        size 0.05 1 0.01
+      }
+    }
+    DEF Floor Solid {
+      translation -0.507498 -0.92 -0.005
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.05 1 0.01
+          }
+        }
+      ]
+      name "solid(21)"
+      boundingObject Box {
+        size 0.05 1 0.01
+      }
+    }
   ]
-  name "solid(4)"
-  boundingObject Box {
-    size 0.275 0.9 0.01
-  }
 }
 DEF Colored_Wall Wall {
   translation 4.925 1.05 0
@@ -470,38 +646,42 @@ DEF Colored_Wall Wall {
 RobocupGoal {
   translation 3.5 0.75 0
 }
-CardboardBox {
-  translation 3.45 0.2 0.05
-  size 0.1 0.1 0.1
-}
-CardboardBox {
-  translation 3.44361 0.0725761 0.05
-  rotation 0 0 1 -1.3090053071795866
-  name "cardboard box(1)"
-  size 0.1 0.1 0.1
-}
-CardboardBox {
-  translation 3.43773 0.133119 0.15
-  rotation 0 0 1 2.61799
-  name "cardboard box(2)"
-  size 0.1 0.1 0.1
-}
-WoodenPalletStack {
-  translation 3.45 1.3 0
-  rotation 0 0 1 4.692820414042842e-06
-  palletSize 0.24 0.16 0.028
-  palletLathWidth 0.016
-  lateralMisalignment 0.02
-  longitudinalMisalignment 0.01
-}
-WoodenPalletStack {
-  translation 3.61314 1.55464 0
-  rotation 0 0 1 0.785402
-  name "wooden pallet stack(1)"
-  palletSize 0.24 0.16 0.028
-  palletLathWidth 0.016
-  lateralMisalignment 0.02
-  longitudinalMisalignment 0.01
+DEF Boxes Group {
+  children [
+    CardboardBox {
+      translation 3.45 0.2 0.05
+      size 0.1 0.1 0.1
+    }
+    CardboardBox {
+      translation 3.44361 0.0725761 0.05
+      rotation 0 0 1 -1.3090053071795866
+      name "cardboard box(1)"
+      size 0.1 0.1 0.1
+    }
+    CardboardBox {
+      translation 3.43773 0.133119 0.15
+      rotation 0 0 1 2.61799
+      name "cardboard box(2)"
+      size 0.1 0.1 0.1
+    }
+    WoodenPalletStack {
+      translation 3.45 1.3 0
+      rotation 0 0 1 4.692820414042842e-06
+      palletSize 0.24 0.16 0.028
+      palletLathWidth 0.016
+      lateralMisalignment 0.02
+      longitudinalMisalignment 0.01
+    }
+    WoodenPalletStack {
+      translation 3.61314 1.55464 0
+      rotation 0 0 1 0.785402
+      name "wooden pallet stack(1)"
+      palletSize 0.24 0.16 0.028
+      palletLathWidth 0.016
+      lateralMisalignment 0.02
+      longitudinalMisalignment 0.01
+    }
+  ]
 }
 EmergencyExitSign {
   translation 2.35 0.25 0.2

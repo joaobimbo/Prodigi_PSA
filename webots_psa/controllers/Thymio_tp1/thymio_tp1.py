@@ -32,10 +32,19 @@ prox_right  = 'prox.horizontal.4'
 # Ciclo principal
 while robot.running():
     # Ler sensores
-    val_left   = robot.get_sensor(prox_left)
-    val_center = robot.get_sensor(prox_center)
-    val_right  = robot.get_sensor(prox_right)
+    #val_left   = robot.get_sensor(prox_left)
+    #val_center = robot.get_sensor(prox_center)
+    #val_right  = robot.get_sensor(prox_right)
     #print(val_center)
 
     # ---------- Exemplo de comportamento ----------
-    go_forward(robot)
+    #go_forward(robot)
+
+
+    sp=2000
+    sens=robot.get_sensor('prox.horizontal.4')
+    vr=3.0-(sp-sens)*0.001
+    vl=3.0
+    robot.set_motors(vl,vr)
+    print(f'v: {vl},{vr} {sens}')
+    robot.step_controller(1)

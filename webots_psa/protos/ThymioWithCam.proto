@@ -6,12 +6,14 @@ PROTO ThymioWithCam [
   field SFRotation rotation     0 1 0 0
   field SFString   name         "thymio_cam"
   field SFString   controller   "thymio_cam_controller"
+  field SFString   contactMaterial "default"
 ] {
   Thymio2 {
     translation IS translation
     rotation    IS rotation
     name        IS name
     controller  IS controller
+    contactMaterial IS contactMaterial 
 
     bodySlot [
       Solid {

@@ -16,10 +16,14 @@ class ThymioPSA:
 
         self.devs['motor.right'].setPosition(float('inf'))
         self.devs['motor.left'].setPosition(float('inf'))
+        self.devs['motor.right'].setVelocity(0)
+        self.devs['motor.left'].setVelocity(0)
+
 
     def set_motors(self, l, r):
         self.devs['motor.right'].setVelocity(r)
         self.devs['motor.left'].setVelocity(l)
+        self.step_controller(1)
 
     def running(self):
         return self.robot.step(self.timestep) != -1
