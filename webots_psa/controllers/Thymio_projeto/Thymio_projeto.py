@@ -15,7 +15,7 @@ def processar_imagem(image, w, h):
     """
     img_array = np.frombuffer(image, dtype=np.uint8).reshape((h, w, 4))
     #img, mask = mask_image(RGBA2HSV(img_array), [25, 40], [20, 255], [20, 255]) # amarelo
-    img, mask=mask_image(RGBA2HSV(img_array),[50,90],[50,255],[10,255]) # verde
+    img, mask=mask_image(RGBA2HSV(img_array),[0,255],[50,255],[10,255]) #cor a filtrar
     # calcular percentagem de pixeis "ativos"
     area_mask = np.count_nonzero(mask)
     total_area = mask.size
