@@ -15,7 +15,7 @@ def processar_imagem(image, w, h):
     """
     img_array = np.frombuffer(image, dtype=np.uint8).reshape((h, w, 4))
     #img, mask = mask_image(RGBA2HSV(img_array), [25, 40], [20, 255], [20, 255]) # amarelo
-    img, mask=mask_image(RGBA2HSV(img_array),[0,225],[50,255],[10,255]) # verde
+    img, mask=mask_image(RGBA2HSV(img_array),[50,80],[50,255],[10,255]) # verde
     # calcular percentagem de pixeis "ativos"
     area_mask = np.count_nonzero(mask)
     total_area = mask.size
@@ -52,12 +52,12 @@ def controlador_1():
     thresh=700
     gl,gr = get_ground()
     if gl<thresh or gr<thresh or robot.get_sensor('prox.horizontal.2')>3000:
-        robot.set_motors(-4,-4)
-        robot.wait(2.0)
-        rm=np.random.choice([-4,4])
+        robot.set_motors(-3,-3)
+        robot.wait(1.0)
+        rm=np.random.choice([-3,3])
         robot.set_motors(rm,-rm)
         print(rm)
-        robot.wait(1.6)
+        robot.wait(1.2)
     else:
         robot.set_motors(5.0,5.0)
            
@@ -73,51 +73,47 @@ def controlador_3():
     robot.wait(2.0)
     print(f"vira esquerda")
     robot.set_motors(-2,2)
-    robot.wait(3.0)
+    robot.wait(2.0)
     print(f"frente")
     robot.set_motors(2,2)
-    robot.wait(8.0)
+    robot.wait(4.0)
     robot.set_motors(2,-2)
     print(f"vira direita")
-    robot.wait(3.0)    
+    robot.wait(2.0)    
     robot.set_motors(2,2)
-    robot.wait(4.0)
+    robot.wait(8.0)
     robot.set_motors(-2,2)
-    robot.wait(3.0)
+    robot.wait(1.0)
    
     
     
 def controlador_4():
     sp=1000
     sens=robot.get_sensor('prox.horizontal.4')
-    if sens < sp-400:
-        vl,vr=4,3
-    elif sens > sp+400:
-        vl,vr=3,4
-    else:
-        vl,vr=3,3
-    
-    vr=2.0-(sp-sens)*0.001
-    vl=2.0+(sp-sens)*0.001
+   
+    vr=2.01-(sp-sens)*0.001
+    vl=2.01+(sp-sens)*0.001
     robot.set_motors(vl,vr)
+    if robot.get_sensor('prox.horizontal.2') > 3000:
+        robot.set_motors(-1,2)
+        robot.wait(2.0)    
+
     print(f'v: {vl},{vr} {sens}')
-    #robot.step_controller(1)
+    robot.step_controller(2)
 
         
 def controlador_5():
     sp=1000
     sens=robot.get_sensor('prox.horizontal.0')
-    if sens < sp-400:
-        vl,vr=3,4
-    elif sens > sp+400:
-        vl,vr=4,3
-    else:
-        vl,vr=3,3
-    vl=2.0-(sp-sens)*0.001
-    vr=2.0+(sp-sens)*0.001
+    vl=2.01-(sp-sens)*0.001
+    vr=2.01+(sp-sens)*0.001
+    if robot.get_sensor('prox.horizontal.2') > 3000:
+        robot.set_motors(2,-1)
+        robot.wait(2.0)    
+    
     robot.set_motors(vl,vr)
     print(f'v: {vl},{vr} {sens}')
-    #robot.step_controller(1)
+    robot.step_controller(2)
     
 def controlador_6():
     gl,gr = get_ground()
@@ -127,7 +123,7 @@ def controlador_6():
 def controlador_7():
     print(f"vira direita")
     robot.set_motors(2,-1)
-    robot.wait(2.5)
+    robot.wait(1.7)
     print(f"frente")
     robot.set_motors(5.8,5.8)
     robot.wait(8.0)
@@ -136,7 +132,7 @@ def controlador_7():
 
     
 robot.wait(1.0)
-fase=4
+fase=1
 
 
 # Ciclo principal
@@ -151,7 +147,7 @@ while robot.running():
         controlador_1()
         print(f'perc verde: {perc}')
 
-        if perc>6:
+        if perc>8:
             fase=2
     
     elif fase==2:
@@ -188,6 +184,6 @@ while robot.running():
                 
     else:
         print(f'fase: {fase}')
-        robot.set_motors(-5.0,5.0)
+        robot.set_motors(-15.0,15.0)
     #if gl < 100 or gr < 100:
     #    robot.set_motors(0,0)
