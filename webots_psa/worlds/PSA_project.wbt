@@ -25,8 +25,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.02308510480750326 -0.9984296184203957 -0.05104287410530004 5.535073700691351
-  position -5.260893256920119 0.5219435561656441 7.440657998831325
+  orientation 0.23623643105624623 -0.5232143085099882 -0.8188034782609453 5.284252688507025
+  position -2.247331187627039 -3.2083844562828983 2.8377917351836435
   follow "thymio_cam"
 }
 TexturedBackground {
@@ -35,7 +35,6 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 ThymioWithCam {
-  hidden rotation_2 0.5773502691995002 0.5773502691995005 0.5773502691698764 2.094395000029624
   translation -0.5 -0.5 0
   rotation 0 0 1 0
   controller "Thymio_projeto"
@@ -476,7 +475,7 @@ DEF Floors Group {
       }
     }
     DEF Floor Solid {
-      translation -1.0275 -0.45 -0.005
+      translation -1.025 0.025 -0.005
       children [
         Shape {
           appearance PBRAppearance {
@@ -485,17 +484,17 @@ DEF Floors Group {
             metalness 0
           }
           geometry Box {
-            size 0.05 1 0.01
+            size 0.05 1.95 0.01
           }
         }
       ]
       name "solid(16)"
       boundingObject Box {
-        size 0.05 1 0.01
+        size 0.05 1.95 0.01
       }
     }
     DEF Floor Solid {
-      translation 0.0225 -0.45 -0.005
+      translation 0.025 -0.475 -0.005
       children [
         Shape {
           appearance PBRAppearance {
@@ -504,17 +503,17 @@ DEF Floors Group {
             metalness 0
           }
           geometry Box {
-            size 0.05 1 0.01
+            size 0.05 0.95 0.01
           }
         }
       ]
       name "solid(22)"
       boundingObject Box {
-        size 0.05 1 0.01
+        size 0.05 0.95 0.01
       }
     }
     DEF Floor Solid {
-      translation 1.2725 0.5 -0.005
+      translation 1.275 0.5 -0.005
       children [
         Shape {
           appearance PBRAppearance {
@@ -533,46 +532,7 @@ DEF Floors Group {
       }
     }
     DEF Floor Solid {
-      translation 0.8025 1.02 -0.005
-      rotation 0 0 1 -1.5707953071795862
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0 0 0
-            roughness 1
-            metalness 0
-          }
-          geometry Box {
-            size 0.05 1 0.01
-          }
-        }
-      ]
-      name "solid(20)"
-      boundingObject Box {
-        size 0.05 1 0.01
-      }
-    }
-    DEF Floor Solid {
-      translation -1.0275 0.5 -0.005
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0 0 0
-            roughness 1
-            metalness 0
-          }
-          geometry Box {
-            size 0.05 1 0.01
-          }
-        }
-      ]
-      name "solid(17)"
-      boundingObject Box {
-        size 0.05 1 0.01
-      }
-    }
-    DEF Floor Solid {
-      translation -0.5475 1.02 -0.005
+      translation 0.125 1.025 -0.005
       rotation 0 0 1 1.5708
       children [
         Shape {
@@ -582,37 +542,17 @@ DEF Floors Group {
             metalness 0
           }
           geometry Box {
-            size 0.05 1 0.01
+            size 0.05 2.35 0.01
           }
         }
       ]
       name "solid(18)"
       boundingObject Box {
-        size 0.05 1 0.01
+        size 0.05 2.35 0.01
       }
     }
     DEF Floor Solid {
-      translation 0.2125 1.02 -0.005
-      rotation 0 0 1 1.5708
-      children [
-        Shape {
-          appearance PBRAppearance {
-            baseColor 0 0 0
-            roughness 1
-            metalness 0
-          }
-          geometry Box {
-            size 0.05 1 0.01
-          }
-        }
-      ]
-      name "solid(23)"
-      boundingObject Box {
-        size 0.05 1 0.01
-      }
-    }
-    DEF Floor Solid {
-      translation -0.507498 -0.92 -0.005
+      translation -0.5 -0.925 -0.005
       rotation 0 0 1 1.5708
       children [
         Shape {

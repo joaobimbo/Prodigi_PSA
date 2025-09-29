@@ -49,8 +49,7 @@ while robot.running():
     cX, cY, largura, altura, perc = get_image() # Obter coordenadas do alvo
     centro_imagem = largura // 2 # Centro ideal da imagem
     
-    vl,vr=4+(cX-160)*0.3,4+(160-cX)*0.3
-    robot.set_motors(vl,vr)
+    robot.set_motors(0,0)
 
     
     print(f"Alvo em X={cX}, Percentagem da imagem={perc:.2f}%")
